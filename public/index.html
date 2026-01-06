@@ -1,466 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parmigiano Reggiano: The King of Cheeses</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #e11d48;
-            --text-color: #333;
-            --light-bg: #f8f8f8;
-            --dark-bg: #222;
-            --white: #fff;
-            --grey-text: #666;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'DM Sans', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--white);
-            scroll-behavior: smooth;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        a {
-            text-decoration: none;
-            color: var(--primary-color);
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        /* Header */
-        header {
-            background-color: var(--white);
-            padding: 15px 0;
-            border-bottom: 1px solid #eee;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8em;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        header nav ul {
-            display: flex;
-        }
-
-        header nav ul li {
-            margin-left: 30px;
-        }
-
-        header nav ul li a {
-            color: var(--text-color);
-            font-weight: 700;
-            transition: color 0.3s ease;
-        }
-
-        header nav ul li a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: url('https://images.unsplash.com/photo-1594165561081-ce04e38c946f?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
-            color: var(--white);
-            text-align: center;
-            padding: 150px 0;
-            position: relative;
-        }
-
-        .hero::before { /* Overlay for better text readability */
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-
-        .hero .container {
-            position: relative; /* Ensure content is above overlay */
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: 3.5em;
-            margin-bottom: 20px;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .hero .tagline {
-            font-size: 1.3em;
-            margin-bottom: 40px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 25px;
-            border-radius: 5px;
-            font-weight: 700;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn.primary {
-            background-color: var(--primary-color);
-            color: var(--white);
-        }
-
-        .btn.primary:hover {
-            background-color: #c01a3f; /* Slightly darker primary */
-            transform: translateY(-2px);
-        }
-
-        /* Sections General */
-        section {
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        section h2 {
-            font-size: 2.5em;
-            margin-bottom: 40px;
-            color: var(--text-color);
-            position: relative;
-            display: inline-block;
-        }
-
-        section h2::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            bottom: -10px;
-            width: 60px;
-            height: 4px;
-            background-color: var(--primary-color);
-            border-radius: 2px;
-        }
-
-        /* Features Section */
-        .features {
-            background-color: var(--light-bg);
-        }
-
-        .feature-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .feature-cards .card {
-            background-color: var(--white);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-align: left;
-        }
-
-        .feature-cards .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-        }
-
-        .feature-cards .card h3 {
-            font-size: 1.6em;
-            margin-bottom: 15px;
-            color: var(--primary-color);
-        }
-
-        .feature-cards .card p {
-            color: var(--grey-text);
-            font-size: 1.05em;
-        }
-
-        /* About Section */
-        .about {
-            background-color: var(--white);
-        }
-
-        .about p {
-            max-width: 800px;
-            margin: 20px auto;
-            font-size: 1.1em;
-            line-height: 1.8;
-            color: var(--grey-text);
-            text-align: left;
-        }
-
-        /* Contact Section */
-        .contact {
-            background-color: var(--light-bg);
-        }
-
-        .contact form {
-            max-width: 600px;
-            margin: 50px auto 0;
-            background-color: var(--white);
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            text-align: left;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 700;
-            color: var(--text-color);
-        }
-
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 1em;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input[type="text"]:focus,
-        .form-group input[type="email"]:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.2); /* Primary color with transparency */
-        }
-
-        .contact .btn {
-            width: 100%;
-            padding: 15px;
-            font-size: 1.1em;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark-bg);
-            color: var(--white);
-            padding: 30px 0;
-            text-align: center;
-            font-size: 0.9em;
-        }
-
-        footer .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        footer p {
-            margin: 0;
-        }
-
-        .social-links a {
-            color: var(--white);
-            margin-left: 20px;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            header .container {
-                flex-direction: column;
-            }
-            header nav {
-                margin-top: 15px;
-            }
-            header nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            header nav ul li {
-                margin: 0 15px 10px;
-            }
-
-            .hero {
-                padding: 100px 0;
-            }
-            .hero h1 {
-                font-size: 2.5em;
-            }
-            .hero .tagline {
-                font-size: 1.1em;
-            }
-
-            section {
-                padding: 60px 0;
-            }
-            section h2 {
-                font-size: 2em;
-                margin-bottom: 30px;
-            }
-
-            .feature-cards {
-                grid-template-columns: 1fr;
-            }
-
-            footer .container {
-                flex-direction: column;
-            }
-            footer p {
-                margin-bottom: 15px;
-            }
-            .social-links a {
-                margin: 0 10px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 1.5em;
-            }
-            .hero h1 {
-                font-size: 2em;
-            }
-            .hero .tagline {
-                font-size: 1em;
-            }
-            .btn {
-                padding: 10px 20px;
-                font-size: 0.9em;
-            }
-            .feature-cards .card {
-                padding: 25px;
-            }
-            .feature-cards .card h3 {
-                font-size: 1.4em;
-            }
-            .contact form {
-                padding: 30px 20px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parmigiano Reggiano</title>
+<meta name="description" content="A site dedicated to the love of Parmigiano Reggiano">
+<meta name="keywords" content="Parmigiano Reggiano, Italian cheese, Parmesan cheese, DOP cheese, hard cheese">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&display=swap');
+:root{--primary:#e11d48;--secondary:#fff1f2;--text:#1f2937}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'DM Sans',system-ui,sans-serif;line-height:1.6;color:var(--text)}
+.container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+header{background:#fff;border-bottom:1px solid #e5e7eb;padding:1rem 0;position:sticky;top:0;z-index:100}
+header .container{display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:1.5rem;font-weight:700;color:var(--primary);text-decoration:none}
+nav ul{display:flex;list-style:none;gap:2rem}
+nav a{color:#6b7280;text-decoration:none;font-weight:500}nav a:hover{color:var(--primary)}
+section{padding:5rem 0}h1{font-size:3rem;margin-bottom:1rem}h2{font-size:2rem;text-align:center;margin-bottom:2rem}
+.hero{text-align:center;background:var(--secondary);padding:8rem 0}
+.hero p{font-size:1.25rem;color:#6b7280;max-width:600px;margin:0 auto 2rem}
+.btn{display:inline-block;background:var(--primary);color:#fff;padding:1rem 2rem;border-radius:0.5rem;text-decoration:none;font-weight:600;border:none;cursor:pointer}
+.btn:hover{opacity:0.9}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem}
+.card{background:#fff;border:1px solid #e5e7eb;border-radius:0.75rem;padding:2rem}
+.card h3{margin:1rem 0 0.5rem}.card-icon{font-size:2rem}
+#about{background:var(--secondary)}.about-text{max-width:800px;margin:0 auto;text-align:center}
+.form-group{margin-bottom:1.5rem}.form-group label{display:block;margin-bottom:0.5rem;font-weight:500}
+.form-group input,.form-group textarea{width:100%;padding:0.75rem;border:1px solid #e5e7eb;border-radius:0.5rem;font-family:inherit}
+.contact-form{max-width:500px;margin:0 auto}
+footer{background:#1f2937;color:#fff;padding:2rem 0;text-align:center}footer a{color:#9ca3af}
+@media(max-width:768px){h1{font-size:2rem}nav ul{display:none}}
+</style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <a href="#home" class="logo">Parmigiano Reggiano</a>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <section id="home" class="hero">
-        <div class="container">
-            <h1>Parmigiano Reggiano: The King of Cheeses</h1>
-            <p class="tagline">Discover the rich history, artisanal craftsmanship, and unparalleled flavor of Italy's culinary masterpiece.</p>
-            <a href="#features" class="btn primary">Explore Our World</a>
-        </div>
-    </section>
-
-    <section id="features" class="features">
-        <div class="container">
-            <h2>Our Dedication to Excellence</h2>
-            <div class="feature-cards">
-                <div class="card">
-                    <h3>Authentic Production</h3>
-                    <p>Meticulously crafted for over 900 years in Emilia-Romagna, Italy, following strict PDO regulations. Only the finest local milk, natural rennet, and salt are used.</p>
-                </div>
-                <div class="card">
-                    <h3>Nutritional Powerhouse</h3>
-                    <p>Rich in protein, calcium, and essential vitamins, Parmigiano Reggiano is naturally lactose-free and easily digestible, making it a healthy and delicious choice.</p>
-                </div>
-                <div class="card">
-                    <h3>Culinary Versatility</h3>
-                    <p>From grating over pasta and risotto to enjoying in chunks with balsamic vinegar, its complex, savory taste elevates any dish or stands proudly on its own.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="about">
-        <div class="container">
-            <h2>Our Story</h2>
-            <p>For centuries, Parmigiano Reggiano has been more than just a cheese; it's a testament to tradition, passion, and the unique terroir of its origin. Born in the provinces of Parma, Reggio Emilia, Modena, Bologna (left bank of the Reno river), and Mantua (right bank of the Po river), each wheel embodies the dedication of its makers.</p>
-            <p>Our site is a tribute to this extraordinary product, celebrating its heritage, the stringent production methods that ensure its quality, and the countless ways it enriches culinary experiences worldwide. Join us in our love for the undisputed King of Cheeses.</p>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Get In Touch</h2>
-            <form action="#" method="POST">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="6" required></textarea>
-                </div>
-                <button type="submit" class="btn primary">Send Message</button>
-            </form>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 Parmigiano Reggiano Enthusiasts. All rights reserved.</p>
-            <div class="social-links">
-                <a href="#">Facebook</a>
-                <a href="#">Instagram</a>
-                <a href="#">Twitter</a>
-            </div>
-        </div>
-    </footer>
+<header><div class="container"><a href="/" class="logo">Parmigiano Reggiano</a><nav><ul><li><a href="#features">Features</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li></ul></nav></div></header>
+<main>
+<section class="hero" id="hero"><div class="container">
+<h1>Welcome to Parmigiano Reggiano</h1>
+<p>A site dedicated to the love of Parmigiano Reggiano</p>
+<a href="#contact" class="btn">Get Started</a>
+</div></section>
+<section id="features"><div class="container">
+<h2>Why Choose Us</h2>
+<div class="grid">
+<div class="card"><div class="card-icon">⚡</div><h3>Fast & Reliable</h3><p>Built for speed and reliability, ensuring the best experience for all users.</p></div>
+<div class="card"><div class="card-icon">🎯</div><h3>Easy to Use</h3><p>Intuitive design that makes everything simple and accessible.</p></div>
+<div class="card"><div class="card-icon">🚀</div><h3>Always Improving</h3><p>Continuously updated with new features and improvements.</p></div>
+</div></div></section>
+<section id="about"><div class="container">
+<h2>About Parmigiano Reggiano</h2>
+<div class="about-text">
+<p>A site dedicated to the love of Parmigiano Reggiano</p>
+<p style="margin-top:1rem">We are dedicated to providing the best service and experience. Our team works hard to ensure quality and satisfaction for everyone who visits.</p>
+</div></div></section>
+<section id="contact"><div class="container">
+<h2>Get In Touch</h2>
+<form class="contact-form" onsubmit="event.preventDefault();alert('Thanks for your message!');this.reset()">
+<div class="form-group"><label>Name</label><input type="text" required placeholder="Your name"></div>
+<div class="form-group"><label>Email</label><input type="email" required placeholder="your@email.com"></div>
+<div class="form-group"><label>Message</label><textarea rows="4" required placeholder="How can we help?"></textarea></div>
+<button type="submit" class="btn" style="width:100%">Send Message</button>
+</form></div></section>
+</main>
+<footer><div class="container"><p>&copy; 2026 Parmigiano Reggiano. All rights reserved.</p></div></footer>
+<script>document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'})}))</script>
 </body>
 </html>
