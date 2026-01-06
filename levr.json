@@ -18,8 +18,8 @@
   "credentialSetId": "",
   "model": "gemini-2.5-flash",
   "customHtml": false,
-  "createdAt": 1767693209353,
-  "updatedAt": 1767693209353,
+  "createdAt": 1767700960987,
+  "updatedAt": 1767700960987,
   "buildMetadata": {
     "levrVersion": "0.5.6",
     "templateVersion": "2.0.0",
@@ -31,7 +31,7 @@
     "workflowVersions": {
       "deploy": "1.2.0"
     },
-    "buildTimestamp": 1767693209353,
+    "buildTimestamp": 1767700960987,
     "buildId": "nwhy8kgc",
     "model": "gemini-2.5-flash",
     "modelProvider": "gemini",
@@ -61,7 +61,7 @@
   "buildHistory": [
     {
       "buildId": "nwhy8kgc",
-      "timestamp": 1767693209353,
+      "timestamp": 1767700960987,
       "type": "initial",
       "model": "gemini-2.5-flash",
       "levrVersion": "0.5.6",
@@ -105,6 +105,6 @@
         "file": "security.yml"
       }
     },
-    "generatedAt": 1767693209353
+    "generatedAt": 1767700960987
   }
 }
